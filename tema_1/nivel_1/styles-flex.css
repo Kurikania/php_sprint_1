@@ -118,23 +118,12 @@ body {
     background-color: blue;
 }
 
-@media only screen and (max-width: 1440px) {
-    .blue {
-        background-color: #558991;
-    }
-}
 
 
 .lightblue {
     background-color: lightblue;
 }
 
-
-@media only screen and (max-width: 1440px) {
-    .container {
-        max-width: 1200px;
-    }
-}
 
 
 @media only screen and (max-width: 1200px) {
@@ -150,6 +139,10 @@ body {
         gap: 20px;
         flex-direction: column;
 
+    }
+
+    .blue {
+        background-color: #558991;
     }
 }
 
