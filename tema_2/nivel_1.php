@@ -86,6 +86,10 @@ Després crea una constant que inclogui el teu nom i mostra-ho en format títol 
             El doble de cada variable.
             La suma de totes les variables.
             El producte de totes les variables.
+
+            b) Crea una funció Calculadora que entri dos nombres per paràmetre, 
+            i en un tercer paràmetre et permeti fer la suma, la resta, la multiplicació 
+            o la divisió dels dos nombres.
         */
 
     $X = 8;
@@ -126,10 +130,30 @@ Després crea una constant que inclogui el teu nom i mostra-ho en format títol 
         </div>
         ");
 
-    /*
-        - Exercici 4
-        
-    */
+        enum Operator
+        {
+            case Suma;
+            case Resta;
+            case Multiplicacio;
+            case Divisio;
+        }
+        function calculadora($num1, $num2, $operator) {
+            switch($operator) {
+                case Operator::Suma: 
+                    return $num1 + $num2;
+                case Operator::Resta: 
+                    return $num1 - $num2;
+                case Operator::Multiplicacio: 
+                    return $num1 * $num2;        
+                case Operator::Divisio: 
+                    return $num1 / $num2;
+            }
+        }
+        echo  "<h4> Calculadora </h4>";
+        echo calculadora(5, 2 , Operator::Suma) . PHP_EOL;
+        echo calculadora(5, 2 , Operator::Resta) . PHP_EOL;
+        echo calculadora(5, 2 , Operator::Multiplicacio) . PHP_EOL;
+        echo calculadora(5, 2 , Operator::Divisio) . PHP_EOL;
 
     ?>
 
