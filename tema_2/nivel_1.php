@@ -162,12 +162,9 @@ Després crea una constant que inclogui el teu nom i mostra-ho en format títol 
             $submit = isset($_GET["submit1"]) ? $_GET["submit1"] : null;
             function countToValue($frequencia, $val=10,)
             {
-                $i = 1;
-                for ( ;($i <= $val); $i = $i + $frequencia) {
-                   for($y = 0 ; $y < $frequencia && $i+$y <= $val ; $y++) {
-                    echo $i+$y . " "  ;                   
-                   } 
-                   $i = $i + $frequencia;
+                
+                for ($i = 0;($i <= $val); $i = $i + $frequencia) {
+                   echo $i . " "  ;  
                    echo "<br/> ";
                 }
             }
