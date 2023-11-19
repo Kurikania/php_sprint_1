@@ -31,11 +31,13 @@ $class = [
 
 function showClassAverageNote($class) {
     $total = 0;
+    $totalNotesCount = 0;
     foreach ($class as $key => $student) {       
         echo "Student $key  " . array_sum($student)/ count($student) . PHP_EOL;
         $total += array_sum($student);
+        $totalNotesCount += count($student);
     }
-    echo "All student's average  " . $total/count($class) . PHP_EOL ;
+    echo "All student's average  " . $total/$totalNotesCount . PHP_EOL ;
 }
 
 showClassAverageNote($class);
