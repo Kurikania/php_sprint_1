@@ -15,4 +15,9 @@ class GosTest extends TestCase
       );
     }
 
+    public function test_makeSound()
+    {
+        $gat = new Gos("Polina");
+        $this->assertSame("Bup, bup!" . PHP_EOL, $gat->makeSound());
+    }
 }
