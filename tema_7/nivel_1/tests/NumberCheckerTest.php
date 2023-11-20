@@ -59,18 +59,18 @@ class NumberCheckerTest extends TestCase
     /**
      * @dataProvider provider
      */
-    public function testIsPositive($a)
+    public function testIsPositive($a, $expected)
     {
         $numberChecker = new NumberChecker($a);
         $result = $numberChecker->isPositive();    
-        $this->assertEquals(true, $result);    
+        $this->assertEquals($expected, $result);    
     }
 
     public static function provider()
     {
         return array(
-            [26,88,75,0,15],
-            [8,26,88,75,0,-15]
+            [26,true],
+            [-15,false]
         );
     }
 
