@@ -50,4 +50,28 @@ class NumberCheckerTest extends TestCase
         $result = $numberChecker->isEven();
         $this->assertEquals(false, $result);
     }
+
+    /*
+    - Exercici 1
+        Programa un DataProvider per a la classe Test de l’exercici 1 del nivell anterior i fes-lo servir. 
+    */
+
+    /**
+     * @dataProvider provider
+     */
+    public function testIsPositive($a)
+    {
+        $numberChecker = new NumberChecker($a);
+        $result = $numberChecker->isPositive();    
+        $this->assertEquals(true, $result);    
+    }
+
+    public static function provider()
+    {
+        return array(
+            [26,88,75,0,15],
+            [8,26,88,75,0,-15]
+        );
+    }
+
 }
