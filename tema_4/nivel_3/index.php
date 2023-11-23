@@ -16,7 +16,7 @@ Implementa una funció que cerqui pel nom del director/a pel·lícules en difere
 A més, pots aprofitar aquest exercici per treballar una bona presentació amb HTML+CSS que doni suport a la lògica.
 */
 
-$interseption = new Movie('Interseption', '220', 'Nolan');
+$interseption = new Movie('Inception', '148', 'Nolan');
 $barbie = new Movie('Barbie', '114', 'Gerwig');
 
 $mirror = new Movie('Mirror', '106', 'Tarkovsky');
@@ -127,7 +127,6 @@ if (!empty($_GET)) {
             Cines
         </h3>
 
-
         <?php foreach ($cines as $cine) : ?>
             <div class="section">
                 <h4>
@@ -141,7 +140,12 @@ if (!empty($_GET)) {
                     }
                     ?>
                 </ul>
-
+                <div>
+                <?php
+                    $movieLargest = $cine->getMaxDurationMovie();                    
+                    ?>
+                    La pelicula mas larga es <?= $movieLargest->getName(); ?> y dura  <?= $movieLargest->getDuration(); ?> minutos
+                </div>
             </div>
 
         <?php endforeach; ?>

@@ -37,9 +37,9 @@ class Cinema {
         $this->movies[] = $movie;
     }
 
-    public function getMaxDuration() {
+    public function getMaxDurationMovie() {
         $result = array_reduce($this->movies, function($a, $b){
-            return $a ? ($a->duracion > $b->duracion ? $a : $b) : $b;
+            return $a ? ($a->getDuration() > $b->getDuration() ? $a : $b) : $b;
         });
         return $result;
     }
