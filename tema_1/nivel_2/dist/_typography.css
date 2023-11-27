@@ -1,0 +1,49 @@
+.page {
+    font-family: 'Inter', sans-serif;
+}
+
+h1 {
+    color: var(--lightorange);
+    font-size: 24px;
+    font-family: 'EB Garamond', serif;
+}
+
+h3 {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.display__title {
+    color: var(--whitegray);
+    text-transform: uppercase;
+    font-size: 24px;
+    font-family: 'Roboto Mono', sans-serif;
+    font-weight: 500;
+}
+
+.body-text {
+    color: var(--mediumgray);
+    font-size: 16px;
+}
+
+.text--muted {
+    color: var(--darkgray);
+}
+
+.text--center {
+    text-align: center;
+}
+
+.capture {
+    font-size: 15px;
+    color: var(--lightyellow);
+}
+
+@media only screen and (min-width: 600px) {
+    h1 {
+        font-size: 36px;
+    }
+}
+
+
+
