@@ -11,39 +11,25 @@ Realitza una aplicació que permeti tirar cinc daus de pòquer alhora.
 
 A més, programa el mètode getTotalThrows que ha de mostrar el nombre total de tirades entre tots els daus. */
 
+
 class PokerDice {
-    public $figures = ["As", "K", "Q", "J", "7" , "8"];
+    public $figures = ["As", "K", "Q", "J", "7" , "8"]; //y también pensar sí todos los dados tienen las mismas caras en este programa. (utilizar enum?)
     public $currentThrow;
     public $totalThrows =0;
     public $diceIndex=0;
 
-    protected static $_instances = array();
+   // protected static $_instances = array(); //No veo correcto que dentro de una clase que representa un dado, contengas instancias de varios dados. 
 
-    public function __construct($diceIndex) {
-        self::$_instances[] = $this;
-        $this->diceIndex = $diceIndex;
-    }
-    public function __destruct()
-    {
-        unset(self::$_instances[array_search($this, self::$_instances, true)]);
+    public function __construct($index) {
+        $this->diceIndex = $index;
     }
 
     public function throw() {
         $this->currentThrow = rand(0,5);
         $this->totalThrows++; 
     }
-    public function shapeName() {
-        if ($this->currentThrow) {            
-            return $this->figures[$this->currentThrow];
-        }
-    }
-
-     public function getTotalThrows() {
-        $counter = 0;    
-        foreach(self::$_instances as $instance) {            
-            $counter += $instance->totalThrows;          
-        }
-        return $counter;
+    public function getShapeName() {     
+        return $this->figures[$this->currentThrow];
     }
 
 }
