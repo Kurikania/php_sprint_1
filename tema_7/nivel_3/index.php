@@ -34,4 +34,6 @@ array_map(function ($item) use ($library) {
     $library->addBook($book);
 },$books);
 
+$library->editBook($library->books[1], ['title' => 'Палата номер 6']); 
+
 print_r($library->books);

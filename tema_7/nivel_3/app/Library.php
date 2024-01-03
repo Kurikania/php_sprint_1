@@ -18,6 +18,12 @@ class Library {
         unset($this->books[$key]);
     }
 
+    public function editBook(Book $book, array $arrayBookData): Book {
+        $key = array_search($book,  $this->books);
+        $this->books[$key]->editBook($arrayBookData);
+        return $book;
+    }
+
     public function getLongBooks($limit = 500): array {
         $result = [];
         foreach ($this->books as $book) {
@@ -33,7 +39,7 @@ class Library {
         /* @var $book Book */
         foreach ($this->books as $book) {
             if (str_contains($book->getTitle(), $keyword) ||
-                str_contains($book->getAutor(), $keyword) ||
+                str_contains($book->getAuthor(), $keyword) ||
                 str_contains($book->getGenere()->name, $keyword)) {
                 $result[] = $book;
             }

@@ -6,16 +6,28 @@ use App\GenereEnum;
 use PHPUnit\Framework\TestCase;
 use App\Library;
 use App\Book;
+use DeepCopy\Reflection\ReflectionHelper;
+
 class LibraryTest extends TestCase
 {
     public function testAddBook()
     {
-        $book = new Book( "Title", "Test Autor", GenereEnum::Conte, "123", 300);
+        $book = new Book( "Title", "Test Author", GenereEnum::Conte, "123", 300);
         $library = new Library();
         $library->addBook($book);
         $this->assertContains($book,$library->books );
     }
 
+    public function testEditBook()
+    {
+        $book = new Book( "Title", "Test Author", GenereEnum::Conte, "123", 300);
+        $editData = ['author' => 'Matt Zandstra', 'title' => 'PHP Objects, Patterns, and Practice'];
+        $book->editBook($editData);
+        foreach($editData as $name => $data) {
+            $value = $book->{'get'. ucfirst($name)}();
+            $this->assertSame($data, $value);
+        }   
+    }
 
     /**
      * @dataProvider provider
@@ -64,8 +76,8 @@ class LibraryTest extends TestCase
     public static function provider() :array
     {
         return array(
-            ["Title", "Test Autor", GenereEnum::Conte, "123", 300],
-            ["Title", "Test Autor", GenereEnum::Conte, "123", 501],
+            ["Title", "Test Author", GenereEnum::Conte, "123", 300],
+            ["Title", "Test Author", GenereEnum::Conte, "123", 501],
         );
     }
     public static function providerSearch() :array
