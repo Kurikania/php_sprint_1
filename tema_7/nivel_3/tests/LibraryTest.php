@@ -8,12 +8,6 @@ use App\Library;
 use App\Book;
 class LibraryTest extends TestCase
 {
-/*
- *     protected string $title;
-    protected string $autor;
-    protected GenereEnum $genere;
-    protected string $isbn;
-    protected int $numPaginas;*/
     public function testAddBook()
     {
         $book = new Book( "Title", "Test Autor", GenereEnum::Conte, "123", 300);
